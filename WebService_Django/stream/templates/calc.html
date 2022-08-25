@@ -1,0 +1,289 @@
+<!--{% extends 'base.html'%}{% block content%} -->
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Yolo v5 webcam</title>
+    <style>
+        /* @import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+        .jjhls{
+           font-family: 'Jeju Hallasan', cursive;
+        } */
+
+        @font-face {
+           font-family: 'HallymGothic-Regular';
+           src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+           font-weight: 400;
+           font-style: normal;
+       }
+
+       @font-face {
+           font-family: 'CookieRunOTF-Bold';
+           src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+           font-weight: normal;
+           font-style: normal;
+       }
+               
+        .hallym-font{
+           font-family: 'HallymGothic-Regular';
+        }
+        .cookie-font{
+           font-family: 'CookieRunOTF-Bold';
+        }
+           
+
+
+
+        .left-box {
+            /* border: 1px solid gray; */
+            background: rgb(255, 255, 255);
+            float: left;
+            width: 50%;
+            height: 600px
+        }
+        .right-box {
+            /* border: 1px solid gray; */
+            background: rgb(255, 255, 255);
+            float: right;
+            width: 50%;
+            height: 600px;
+            padding: 50px
+        }
+        .in-box {
+            border-right: 3px solid #239023;
+            border-left: 3px solid #239023;
+            float: center;
+            width: 25%;
+            height: 85%;
+            float: left;
+        }
+        .in1-box {
+            border-left: 3px solid #239023;
+            float: center;
+            width: 37.5%;
+            height: 85%;
+            float: left;
+        }
+        .in2-box {
+            /* border: 1px solid gray; */
+            float: center;
+            width: 12.5%;
+            height: 85%;
+            float: left;
+        }
+        .in3-box {
+            /* border: 1px solid gray; */
+            float: center;
+            width: 100%;
+            height: 15%;
+            float: left;
+        }
+        .name-top-box{
+            /* border: 3px solid #239023; */
+            background: rgb(92, 214, 92);
+            display: inline-block;
+            width: 100%;
+            height: 8%
+ 
+        }
+        .name-bottom-box{
+            /* border: 1px solid gray; */
+            /* background: rgb(143, 187, 255); */
+            display: inline-block;
+            width: 100%;
+            height: 92%
+            
+ 
+        }
+        .count-top-box{
+            /* border: 1px solid gray; */
+            background: rgb(92, 214, 92);
+            display: inline-block;
+            width: 100%;
+            height: 8%
+
+        }
+        .count-bottom-box{
+            /* border: 1px solid gray; */
+            /* background: rgb(143, 187, 255); */
+            display: inline-block;
+            width: 100%;
+            height: 92%
+
+        }
+        .cost-top-box{
+            /* border: 1px solid gray; */
+            background: rgb(92, 214, 92);
+            display: inline-block;
+            width: 100%;
+            height: 8%
+        }
+        .cost-bottom-box{
+            /* border: 1px solid gray; */
+            /* background: rgb(143, 187, 255); */
+            display: inline-block;
+            width: 100%;
+            height: 92%
+        }
+        .countxcost-top-box{
+            /* border: 1px solid gray; */
+            background: rgb(92, 214, 92);
+            display: inline-block;
+            width: 100%;
+            height: 8%
+        }
+        .countxcost-bottom-box{
+            /* border: 1px solid gray; */
+            /* background: rgb(143, 187, 255); */
+            display: inline-block;
+            width: 100%;
+            height: 92%
+        }
+
+        .total-box{
+            /* border: 1px solid gray; */
+            background: rgb(92, 214, 92);
+            display: inline-block;
+            width: 100%;
+            height: 100%
+        }
+        a{
+           text-decoration: none;
+        }
+
+        @keyframes blink-effect {
+
+             50% {
+                opacity: 0;
+            }
+        }
+
+        .blink {
+
+            animation: blink-effect 1s step-end infinite;
+
+            /*
+            animation-name: blink-effect;
+            animation-duration: 1s;
+            animation-iteration-count:infinite;
+            animation-timing-function:step-end;
+            */
+        }
+
+
+
+        
+
+    </style>
+</head>
+<body>
+
+
+
+    <div style="padding: 30px;">
+       <h1 align="center" class="cookie-font blink" style="font-size:50px" >상품 목록 확인 후 결제창으로 넘어가 주세요 >.< </h1>
+    </div>
+
+    <div class='left-box' style="padding:30px">
+       <p style="text-align: center;">
+            <img src="/static/byebye.png" alt="" >
+       </p>
+       
+    </div>
+
+
+    <div class="right-box" style="padding:5px;">
+        
+       <div class="in1-box">
+           <div class="name-top-box" style="padding:5px">
+               <p align="center" class="hallym-font" style="font-size:20px; font-weight: bold">상품명</p>
+           </div>
+           <div class="name-bottom-box" style="padding:5px"> 
+               <table align='center' class="hallym-font" style="font-size:20px">
+                   <tbody>
+                   {% for key,value in total1.items %}
+                   <tr>
+                       <td>{{value.0}}</td>
+                   </tr>
+                   </tbody>
+                   {%endfor%}
+               </table>
+               
+
+           </div>
+       </div>
+   
+       <div class="in-box">
+           <div class="cost-top-box" style="padding:5px">
+               <p align="center"  class="hallym-font" style="font-size:20px; font-weight: bold">가격</p>
+           </div>  
+           <div class="cost-bottom-box" style="padding:5px">
+               <table align='center' class="hallym-font" style="font-size:20px">
+                   <tbody>
+                   {% for key,value in total1.items %}
+                   <tr>
+                       <td>{{value.1}}</td>
+                   </tr>
+                   </tbody>
+                   {%endfor%}
+               </table>
+           </div>  
+       </div>
+
+   
+       <div class="in2-box">
+           <div class="count-top-box" style="padding:5px">
+               <p align="center" class="hallym-font" style="font-size:20px; font-weight: bold">수량</p>
+           </div>
+           <div class="count-bottom-box" style="padding:5px">
+               <table align='center' class="hallym-font" style="font-size:20px">
+                   <tbody>
+                   {% for key,value in total1.items %}
+                   <tr>
+                       <td>{{value.2}}</td>
+                   </tr>
+                   </tbody>
+                   {%endfor%}
+               </table>
+           </div>
+       </div>
+
+       <div class="in-box">
+           <div class="countxcost-top-box" style="padding:5px">
+               <p align="center"  class="hallym-font" style="font-size:20px; font-weight: bold">합계</p>
+           </div>
+           <div class="countxcost-bottom-box" style="padding:5px">
+               <table align='center' class="hallym-font" style="font-size:20px">
+                   <tbody>
+                   {% for key,value in total1.items %}
+                   <tr>
+                       <td>{{value.3}}</td>
+                   </tr>
+                   </tbody>
+                   {%endfor%}
+               </table>
+           </div>
+       </div>
+       <div class="in3-box">
+           <div class="total-box" style="padding:5px">
+               <table align='right'>
+                   <tbody>
+                   <tr>
+                       <td valign='middle' class="cookie-font" style="font-size:25px; font-weight: bold">총 결제금액:        </td>
+                       <td valign='middle' class="cookie-font" style="font-size:40px; font-weight: bold">     {{total1.sum}}  원</td>
+                   </tr>
+                   </tbody>
+               </table>
+           </div> 
+       </div>
+
+    </div>
+    
+</body>
+</html>
+
+<!-- {% endblock %} -->

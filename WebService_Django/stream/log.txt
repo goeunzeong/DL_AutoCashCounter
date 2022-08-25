@@ -1,0 +1,5 @@
+C:\Users\User\anaconda3\envs\web\Lib\site-packages\yolov5\helpers.py def load_model
+
+============= view.py ===============
+line 22 : 
+line 24 : device gpu set
